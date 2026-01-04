@@ -49,7 +49,7 @@ class C_materi extends CI_Controller {
         $config = [
             'upload_path'   => './uploads/materi/',
             'allowed_types' => 'pdf|jpg|png',
-            'max_size'      => 20480
+            'max_size'      => 102400 //100mb
         ];
 
         $this->load->library('upload', $config);
