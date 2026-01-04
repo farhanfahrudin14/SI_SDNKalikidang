@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2026 at 05:20 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.3.33
+-- Waktu pembuatan: 04 Jan 2026 pada 12.08
+-- Versi server: 10.4.22-MariaDB
+-- Versi PHP: 7.3.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `agenda`
+-- Struktur dari tabel `agenda`
 --
 
 CREATE TABLE `agenda` (
@@ -33,7 +33,7 @@ CREATE TABLE `agenda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `agenda`
+-- Dumping data untuk tabel `agenda`
 --
 
 INSERT INTO `agenda` (`id`, `photo`) VALUES
@@ -42,7 +42,7 @@ INSERT INTO `agenda` (`id`, `photo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `banners`
+-- Struktur dari tabel `banners`
 --
 
 CREATE TABLE `banners` (
@@ -53,7 +53,7 @@ CREATE TABLE `banners` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `banners`
+-- Dumping data untuk tabel `banners`
 --
 
 INSERT INTO `banners` (`id`, `title`, `text`, `photo`) VALUES
@@ -64,7 +64,7 @@ INSERT INTO `banners` (`id`, `title`, `text`, `photo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bg_majors`
+-- Struktur dari tabel `bg_majors`
 --
 
 CREATE TABLE `bg_majors` (
@@ -73,7 +73,7 @@ CREATE TABLE `bg_majors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bg_majors`
+-- Dumping data untuk tabel `bg_majors`
 --
 
 INSERT INTO `bg_majors` (`id`, `photo`) VALUES
@@ -82,7 +82,7 @@ INSERT INTO `bg_majors` (`id`, `photo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ekstrakurikuler_foto`
+-- Struktur dari tabel `ekstrakurikuler_foto`
 --
 
 CREATE TABLE `ekstrakurikuler_foto` (
@@ -93,20 +93,20 @@ CREATE TABLE `ekstrakurikuler_foto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `ekstrakurikuler_foto`
+-- Dumping data untuk tabel `ekstrakurikuler_foto`
 --
 
 INSERT INTO `ekstrakurikuler_foto` (`id`, `kategori_id`, `foto`, `tanggal_upload`) VALUES
 (1, 3, 'ebc19975adc0c15c6d9136b49fb584de.png', '2025-12-29'),
 (2, 1, 'bb3fe9c1ed9d8e1b5786e6dcd34b9da6.jpg', '2025-12-29'),
 (4, 1, '1a70879001740029663b745652291709.jpeg', '2025-12-29'),
-(5, 1, '2f23430e8f17be96ec5c56233d7b71a8.jpeg', '2025-12-29'),
-(7, 1, '593c9ad62a89763ca949c1d73ccab0ce.jpeg', '2025-12-29');
+(5, 1, '9d7e5c38b7739f1b9d9a795dab881bcd.jpg', '2025-12-29'),
+(7, 1, 'a074326c3082f5a211843e273bb5233c.jpg', '2025-12-29');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ekstrakurikuler_kategori`
+-- Struktur dari tabel `ekstrakurikuler_kategori`
 --
 
 CREATE TABLE `ekstrakurikuler_kategori` (
@@ -117,7 +117,7 @@ CREATE TABLE `ekstrakurikuler_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `ekstrakurikuler_kategori`
+-- Dumping data untuk tabel `ekstrakurikuler_kategori`
 --
 
 INSERT INTO `ekstrakurikuler_kategori` (`id`, `nama_kategori`, `deskripsi`, `created_at`) VALUES
@@ -127,7 +127,20 @@ INSERT INTO `ekstrakurikuler_kategori` (`id`, `nama_kategori`, `deskripsi`, `cre
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fasilitas_foto`
+-- Struktur dari tabel `facilities`
+--
+
+CREATE TABLE `facilities` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `fasilitas_foto`
 --
 
 CREATE TABLE `fasilitas_foto` (
@@ -138,7 +151,7 @@ CREATE TABLE `fasilitas_foto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `fasilitas_foto`
+-- Dumping data untuk tabel `fasilitas_foto`
 --
 
 INSERT INTO `fasilitas_foto` (`id`, `kategori_id`, `foto`, `tanggal_upload`) VALUES
@@ -149,7 +162,7 @@ INSERT INTO `fasilitas_foto` (`id`, `kategori_id`, `foto`, `tanggal_upload`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fasilitas_kategori`
+-- Struktur dari tabel `fasilitas_kategori`
 --
 
 CREATE TABLE `fasilitas_kategori` (
@@ -160,7 +173,7 @@ CREATE TABLE `fasilitas_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `fasilitas_kategori`
+-- Dumping data untuk tabel `fasilitas_kategori`
 --
 
 INSERT INTO `fasilitas_kategori` (`id`, `nama_kategori`, `deskripsi`, `created_at`) VALUES
@@ -170,7 +183,7 @@ INSERT INTO `fasilitas_kategori` (`id`, `nama_kategori`, `deskripsi`, `created_a
 -- --------------------------------------------------------
 
 --
--- Table structure for table `galeri_foto`
+-- Struktur dari tabel `galeri_foto`
 --
 
 CREATE TABLE `galeri_foto` (
@@ -182,7 +195,7 @@ CREATE TABLE `galeri_foto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `galeri_foto`
+-- Dumping data untuk tabel `galeri_foto`
 --
 
 INSERT INTO `galeri_foto` (`id`, `kategori_id`, `foto`, `tanggal_upload`, `deskripsi`) VALUES
@@ -205,7 +218,7 @@ INSERT INTO `galeri_foto` (`id`, `kategori_id`, `foto`, `tanggal_upload`, `deskr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `galeri_kategori`
+-- Struktur dari tabel `galeri_kategori`
 --
 
 CREATE TABLE `galeri_kategori` (
@@ -215,7 +228,7 @@ CREATE TABLE `galeri_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `galeri_kategori`
+-- Dumping data untuk tabel `galeri_kategori`
 --
 
 INSERT INTO `galeri_kategori` (`id`, `nama_kategori`, `deskripsi`) VALUES
@@ -227,7 +240,7 @@ INSERT INTO `galeri_kategori` (`id`, `nama_kategori`, `deskripsi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `groups`
+-- Struktur dari tabel `groups`
 --
 
 CREATE TABLE `groups` (
@@ -237,7 +250,7 @@ CREATE TABLE `groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `groups`
+-- Dumping data untuk tabel `groups`
 --
 
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
@@ -249,7 +262,7 @@ INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `guru`
+-- Struktur dari tabel `guru`
 --
 
 CREATE TABLE `guru` (
@@ -262,7 +275,7 @@ CREATE TABLE `guru` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `guru`
+-- Dumping data untuk tabel `guru`
 --
 
 INSERT INTO `guru` (`id`, `nama`, `nip`, `jabatan`, `foto`, `created_at`) VALUES
@@ -287,7 +300,7 @@ INSERT INTO `guru` (`id`, `nama`, `nip`, `jabatan`, `foto`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `identity`
+-- Struktur dari tabel `identity`
 --
 
 CREATE TABLE `identity` (
@@ -299,7 +312,7 @@ CREATE TABLE `identity` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `identity`
+-- Dumping data untuk tabel `identity`
 --
 
 INSERT INTO `identity` (`id`, `meta_title`, `meta_description`, `meta_keyword`, `photo`) VALUES
@@ -308,7 +321,7 @@ INSERT INTO `identity` (`id`, `meta_title`, `meta_description`, `meta_keyword`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kontak`
+-- Struktur dari tabel `kontak`
 --
 
 CREATE TABLE `kontak` (
@@ -321,7 +334,7 @@ CREATE TABLE `kontak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kontak`
+-- Dumping data untuk tabel `kontak`
 --
 
 INSERT INTO `kontak` (`id`, `alamat`, `telepon`, `email`, `maps`, `created_at`) VALUES
@@ -330,7 +343,7 @@ INSERT INTO `kontak` (`id`, `alamat`, `telepon`, `email`, `maps`, `created_at`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login_attempts`
+-- Struktur dari tabel `login_attempts`
 --
 
 CREATE TABLE `login_attempts` (
@@ -343,7 +356,7 @@ CREATE TABLE `login_attempts` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `majors`
+-- Struktur dari tabel `majors`
 --
 
 CREATE TABLE `majors` (
@@ -354,7 +367,7 @@ CREATE TABLE `majors` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `materi_pelajaran`
+-- Struktur dari tabel `materi_pelajaran`
 --
 
 CREATE TABLE `materi_pelajaran` (
@@ -369,7 +382,7 @@ CREATE TABLE `materi_pelajaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `materi_pelajaran`
+-- Dumping data untuk tabel `materi_pelajaran`
 --
 
 INSERT INTO `materi_pelajaran` (`id`, `judul`, `isi`, `created_at`, `deskripsi`, `kelas`, `file`, `id_user`) VALUES
@@ -402,7 +415,7 @@ INSERT INTO `materi_pelajaran` (`id`, `judul`, `isi`, `created_at`, `deskripsi`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menus`
+-- Struktur dari tabel `menus`
 --
 
 CREATE TABLE `menus` (
@@ -415,7 +428,7 @@ CREATE TABLE `menus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `menus`
+-- Dumping data untuk tabel `menus`
 --
 
 INSERT INTO `menus` (`id`, `user_id`, `title`, `url`, `icon`, `is_active`) VALUES
@@ -435,7 +448,7 @@ INSERT INTO `menus` (`id`, `user_id`, `title`, `url`, `icon`, `is_active`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `opening`
+-- Struktur dari tabel `opening`
 --
 
 CREATE TABLE `opening` (
@@ -445,7 +458,7 @@ CREATE TABLE `opening` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `opening`
+-- Dumping data untuk tabel `opening`
 --
 
 INSERT INTO `opening` (`id`, `content`, `photo`) VALUES
@@ -454,7 +467,7 @@ INSERT INTO `opening` (`id`, `content`, `photo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `posts`
+-- Struktur dari tabel `posts`
 --
 
 CREATE TABLE `posts` (
@@ -470,7 +483,7 @@ CREATE TABLE `posts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `posts`
+-- Dumping data untuk tabel `posts`
 --
 
 INSERT INTO `posts` (`id`, `title`, `seo_title`, `content`, `photo`, `is_active`, `date`, `id_user`, `author_name`) VALUES
@@ -482,7 +495,7 @@ INSERT INTO `posts` (`id`, `title`, `seo_title`, `content`, `photo`, `is_active`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ppdb`
+-- Struktur dari tabel `ppdb`
 --
 
 CREATE TABLE `ppdb` (
@@ -495,7 +508,7 @@ CREATE TABLE `ppdb` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `ppdb`
+-- Dumping data untuk tabel `ppdb`
 --
 
 INSERT INTO `ppdb` (`id`, `judul`, `deskripsi`, `link`, `foto`, `created_at`) VALUES
@@ -504,7 +517,7 @@ INSERT INTO `ppdb` (`id`, `judul`, `deskripsi`, `link`, `foto`, `created_at`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ppdb_views`
+-- Struktur dari tabel `ppdb_views`
 --
 
 CREATE TABLE `ppdb_views` (
@@ -514,18 +527,19 @@ CREATE TABLE `ppdb_views` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `ppdb_views`
+-- Dumping data untuk tabel `ppdb_views`
 --
 
 INSERT INTO `ppdb_views` (`id`, `view_date`, `views`) VALUES
 (1, '2025-12-28', 18),
 (2, '2025-12-29', 1),
-(3, '2025-12-30', 8);
+(3, '2025-12-30', 8),
+(4, '2026-01-04', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prestasi`
+-- Struktur dari tabel `prestasi`
 --
 
 CREATE TABLE `prestasi` (
@@ -540,24 +554,23 @@ CREATE TABLE `prestasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `prestasi`
+-- Dumping data untuk tabel `prestasi`
 --
 
 INSERT INTO `prestasi` (`id`, `judul`, `deskripsi`, `foto`, `aktif`, `diupload`, `isi`, `created_at`) VALUES
 (4, '<p>Juara 3 <i>Maca lan Nulis Aksara Jawa</i></p>', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada <b>Chitami is\'ro Fadiyah</b> atas prestasinya sebagai Juara 3 <i>Maca lan Nulis Aksara Jawa.</i>', '86c0627554d414f81656222a9f288494.jpg', 'Y', '2025-09-07 13:01:13', NULL, '2025-09-07 11:01:13'),
-(5, 'Juara 3 Menulis Cerkak', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Ahmad Faizal Arifin atas prestasinya sebagai Juara 3 Menulis Cerkak.', '19a78bf06073dc611846560668ad4f4e.jpg', 'Y', '2025-09-07 14:54:09', NULL, '2025-09-07 12:54:09'),
+(5, 'Juara 3 Menulis <i>Cerkak</i>', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Ahmad Faizal Arifin atas prestasinya sebagai Juara 3 Menulis Cerkak.', '19a78bf06073dc611846560668ad4f4e.jpg', 'Y', '2025-09-07 14:54:09', NULL, '2025-09-07 12:54:09'),
 (6, 'Juara 3 Menulis Cerkak', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Thiffani Oktaviani atas prestasinya sebagai Juara 3 Menulis Cerkak.', '65139a8153bba5cdc4ffe1e332110afc.jpg', 'Y', '2025-09-07 14:57:07', NULL, '2025-09-07 12:57:07'),
 (7, 'Juara 2 Maca lan Nulis Aksara Jawa', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Bahy Yoga Asmoro atas prestasinya sebagai Juara 2 Maca lan Nulis Aksara Jawa.', '3466d752bd887949e829e542246a1f19.jpg', 'Y', '2025-09-07 14:59:01', NULL, '2025-09-07 12:59:01'),
 (8, 'Juara 1 Lomba O2SN ATHLETIC KIDS KANGA\'S ESCSPE PUTRI Tingkat Kecamatan', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Zahra Adelia atas prestasinya sebagai Juara 1 Lomba O2SN ATHLETIC KIDS KANGA\'S ESCSPE PUTRI Tingkat Kecamatan.', 'aef7190aef7bc4aa4f027baa02889f43.jpg', 'Y', '2025-09-07 15:08:17', NULL, '2025-09-07 13:08:17'),
 (9, 'Juara 1 Lomba FLS2N Tingkat Kecamatan Cabang Gambar Bercerita', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Syarif Maulana Wijaya atas prestasinya sebagai Juara 1 Lomba FLS2N Tingkat Kecamatan Cabang Gambar Bercerita.', '86924ba8dacf7fabe3e6d68631dd6a09.jpg', 'Y', '2025-09-07 15:12:05', NULL, '2025-09-07 13:12:05'),
 (10, 'Juara 1 Lomba FLS2N Tingkat Kecamatan Cabang Seni Tari', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Mutiara Dian Nur Alifah, Silvana Syafa Qafkhani, dan Rahma Nur Fadhillah, atas prestasinya sebagai Juara 1 Lomba FLS2N Tingkat Kecamatan Cabang Seni Tari.', 'd52ec1378333be11d8f85e677193434b.jpg', 'Y', '2025-09-07 15:15:31', NULL, '2025-09-07 13:15:31'),
-(11, 'Juara 1 Lomba FLS2N Tingkat Kecamatan Cabang Seni Kriya', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Gendis Azzura Nida atas prestasinya sebagai Juara 1<i> </i>Lomba FLS2N Tingkat Kecamatan Cabang Seni Kriya.', 'cd0814735cbda2d4e8bfa212f16f085b.jpg', 'Y', '2025-09-07 15:17:27', NULL, '2025-09-07 13:17:27'),
-(12, '<p>Maca lan Nulis</p>', '<p>lorem ispum dolor is amet</p>', '31fccb83f8b32db36a62099bf57d6aff.jpeg', 'Y', '2025-12-30 05:08:26', NULL, '2025-12-30 04:08:26');
+(11, 'Juara 1 Lomba FLS2N Tingkat Kecamatan Cabang Seni Kriya', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Gendis Azzura Nida atas prestasinya sebagai Juara 1<i> </i>Lomba FLS2N Tingkat Kecamatan Cabang Seni Kriya.', 'cd0814735cbda2d4e8bfa212f16f085b.jpg', 'Y', '2025-09-07 15:17:27', NULL, '2025-09-07 13:17:27');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `structure`
+-- Struktur dari tabel `structure`
 --
 
 CREATE TABLE `structure` (
@@ -566,7 +579,7 @@ CREATE TABLE `structure` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `structure`
+-- Dumping data untuk tabel `structure`
 --
 
 INSERT INTO `structure` (`id`, `photo`) VALUES
@@ -575,7 +588,7 @@ INSERT INTO `structure` (`id`, `photo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `submenus`
+-- Struktur dari tabel `submenus`
 --
 
 CREATE TABLE `submenus` (
@@ -587,7 +600,7 @@ CREATE TABLE `submenus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `submenus`
+-- Dumping data untuk tabel `submenus`
 --
 
 INSERT INTO `submenus` (`id`, `menu_id`, `sub_title`, `sub_url`, `is_active`) VALUES
@@ -610,7 +623,7 @@ INSERT INTO `submenus` (`id`, `menu_id`, `sub_title`, `sub_url`, `is_active`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -637,18 +650,18 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `photo`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$ZUpa8cwvREWaSyYWtCKMLeOWGt3fC2VDKGDRSLJ/.uIYXJ2n9CrBi', 'rantinuramiraigustin@gmail.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1767099223, 1, 'Super Admin', 'SD Negeri Kalikidang', NULL, '2147483647', NULL),
+(1, '127.0.0.1', 'administrator', '$2y$12$ZUpa8cwvREWaSyYWtCKMLeOWGt3fC2VDKGDRSLJ/.uIYXJ2n9CrBi', 'rantinuramiraigustin@gmail.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1767521888, 1, 'Super Admin', 'SD Negeri Kalikidang', NULL, '2147483647', NULL),
 (13, '::1', 'guru@gmail.com', '$2y$10$Vghrih6PzNuwvnHa94.CZ.9ImygxfbjyLex9RNMnOjslNpcBzI39u', 'guru@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1765549397, 1766083700, 1, 'guru', '1', '', '', NULL),
 (18, '182.2.43.185', 'ranti@gmail.com', '$2y$10$8er/yA/fbuw0GIMRa6qZqueAl3OFt//wdp6KT.R2wdrpUECoJkXb2', 'ranti@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1766072036, NULL, 1, 'Ranti', 'Amira', 'ABC', '089665432344', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users_groups`
+-- Struktur dari tabel `users_groups`
 --
 
 CREATE TABLE `users_groups` (
@@ -658,7 +671,7 @@ CREATE TABLE `users_groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users_groups`
+-- Dumping data untuk tabel `users_groups`
 --
 
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
@@ -671,125 +684,131 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 --
 
 --
--- Indexes for table `banners`
+-- Indeks untuk tabel `banners`
 --
 ALTER TABLE `banners`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ekstrakurikuler_foto`
+-- Indeks untuk tabel `ekstrakurikuler_foto`
 --
 ALTER TABLE `ekstrakurikuler_foto`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_ekskul_kategori` (`kategori_id`);
 
 --
--- Indexes for table `ekstrakurikuler_kategori`
+-- Indeks untuk tabel `ekstrakurikuler_kategori`
 --
 ALTER TABLE `ekstrakurikuler_kategori`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `fasilitas_foto`
+-- Indeks untuk tabel `facilities`
+--
+ALTER TABLE `facilities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `fasilitas_foto`
 --
 ALTER TABLE `fasilitas_foto`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_fasilitas_kategori` (`kategori_id`);
 
 --
--- Indexes for table `fasilitas_kategori`
+-- Indeks untuk tabel `fasilitas_kategori`
 --
 ALTER TABLE `fasilitas_kategori`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `galeri_foto`
+-- Indeks untuk tabel `galeri_foto`
 --
 ALTER TABLE `galeri_foto`
   ADD PRIMARY KEY (`id`),
   ADD KEY `kategori_id` (`kategori_id`);
 
 --
--- Indexes for table `galeri_kategori`
+-- Indeks untuk tabel `galeri_kategori`
 --
 ALTER TABLE `galeri_kategori`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `groups`
+-- Indeks untuk tabel `groups`
 --
 ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `guru`
+-- Indeks untuk tabel `guru`
 --
 ALTER TABLE `guru`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kontak`
+-- Indeks untuk tabel `kontak`
 --
 ALTER TABLE `kontak`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `materi_pelajaran`
+-- Indeks untuk tabel `materi_pelajaran`
 --
 ALTER TABLE `materi_pelajaran`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `menus`
+-- Indeks untuk tabel `menus`
 --
 ALTER TABLE `menus`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `opening`
+-- Indeks untuk tabel `opening`
 --
 ALTER TABLE `opening`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `posts`
+-- Indeks untuk tabel `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ppdb`
+-- Indeks untuk tabel `ppdb`
 --
 ALTER TABLE `ppdb`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ppdb_views`
+-- Indeks untuk tabel `ppdb_views`
 --
 ALTER TABLE `ppdb_views`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `prestasi`
+-- Indeks untuk tabel `prestasi`
 --
 ALTER TABLE `prestasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `structure`
+-- Indeks untuk tabel `structure`
 --
 ALTER TABLE `structure`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `submenus`
+-- Indeks untuk tabel `submenus`
 --
 ALTER TABLE `submenus`
   ADD PRIMARY KEY (`id`),
   ADD KEY `menu_id` (`menu_id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -799,7 +818,7 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `uc_remember_selector` (`remember_selector`);
 
 --
--- Indexes for table `users_groups`
+-- Indeks untuk tabel `users_groups`
 --
 ALTER TABLE `users_groups`
   ADD PRIMARY KEY (`id`),
@@ -808,165 +827,171 @@ ALTER TABLE `users_groups`
   ADD KEY `fk_users_groups_groups1_idx` (`group_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `banners`
+-- AUTO_INCREMENT untuk tabel `banners`
 --
 ALTER TABLE `banners`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `ekstrakurikuler_foto`
+-- AUTO_INCREMENT untuk tabel `ekstrakurikuler_foto`
 --
 ALTER TABLE `ekstrakurikuler_foto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `ekstrakurikuler_kategori`
+-- AUTO_INCREMENT untuk tabel `ekstrakurikuler_kategori`
 --
 ALTER TABLE `ekstrakurikuler_kategori`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `fasilitas_foto`
+-- AUTO_INCREMENT untuk tabel `facilities`
+--
+ALTER TABLE `facilities`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `fasilitas_foto`
 --
 ALTER TABLE `fasilitas_foto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `fasilitas_kategori`
+-- AUTO_INCREMENT untuk tabel `fasilitas_kategori`
 --
 ALTER TABLE `fasilitas_kategori`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `galeri_foto`
+-- AUTO_INCREMENT untuk tabel `galeri_foto`
 --
 ALTER TABLE `galeri_foto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `galeri_kategori`
+-- AUTO_INCREMENT untuk tabel `galeri_kategori`
 --
 ALTER TABLE `galeri_kategori`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `groups`
+-- AUTO_INCREMENT untuk tabel `groups`
 --
 ALTER TABLE `groups`
   MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `guru`
+-- AUTO_INCREMENT untuk tabel `guru`
 --
 ALTER TABLE `guru`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `kontak`
+-- AUTO_INCREMENT untuk tabel `kontak`
 --
 ALTER TABLE `kontak`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `materi_pelajaran`
+-- AUTO_INCREMENT untuk tabel `materi_pelajaran`
 --
 ALTER TABLE `materi_pelajaran`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
--- AUTO_INCREMENT for table `menus`
+-- AUTO_INCREMENT untuk tabel `menus`
 --
 ALTER TABLE `menus`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `opening`
+-- AUTO_INCREMENT untuk tabel `opening`
 --
 ALTER TABLE `opening`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `posts`
+-- AUTO_INCREMENT untuk tabel `posts`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
--- AUTO_INCREMENT for table `ppdb`
+-- AUTO_INCREMENT untuk tabel `ppdb`
 --
 ALTER TABLE `ppdb`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `ppdb_views`
+-- AUTO_INCREMENT untuk tabel `ppdb_views`
 --
 ALTER TABLE `ppdb_views`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `prestasi`
+-- AUTO_INCREMENT untuk tabel `prestasi`
 --
 ALTER TABLE `prestasi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `structure`
+-- AUTO_INCREMENT untuk tabel `structure`
 --
 ALTER TABLE `structure`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `submenus`
+-- AUTO_INCREMENT untuk tabel `submenus`
 --
 ALTER TABLE `submenus`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `users_groups`
+-- AUTO_INCREMENT untuk tabel `users_groups`
 --
 ALTER TABLE `users_groups`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `ekstrakurikuler_foto`
+-- Ketidakleluasaan untuk tabel `ekstrakurikuler_foto`
 --
 ALTER TABLE `ekstrakurikuler_foto`
   ADD CONSTRAINT `fk_ekskul_kategori` FOREIGN KEY (`kategori_id`) REFERENCES `ekstrakurikuler_kategori` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `fasilitas_foto`
+-- Ketidakleluasaan untuk tabel `fasilitas_foto`
 --
 ALTER TABLE `fasilitas_foto`
   ADD CONSTRAINT `fk_fasilitas_kategori` FOREIGN KEY (`kategori_id`) REFERENCES `fasilitas_kategori` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `galeri_foto`
+-- Ketidakleluasaan untuk tabel `galeri_foto`
 --
 ALTER TABLE `galeri_foto`
   ADD CONSTRAINT `galeri_foto_ibfk_1` FOREIGN KEY (`kategori_id`) REFERENCES `galeri_kategori` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `submenus`
+-- Ketidakleluasaan untuk tabel `submenus`
 --
 ALTER TABLE `submenus`
   ADD CONSTRAINT `submenus_ibfk_1` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`);
 
 --
--- Constraints for table `users_groups`
+-- Ketidakleluasaan untuk tabel `users_groups`
 --
 ALTER TABLE `users_groups`
   ADD CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
