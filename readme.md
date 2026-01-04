@@ -1,4 +1,4 @@
-# CodeIgniter 3 School Website Template
+# CodeIgniter 3 School Website
 
 Template website sekolah berbasis **CodeIgniter 3** dengan tampilan sederhana dan fitur administrasi yang fungsional. Cocok digunakan sebagai dasar pengembangan sistem informasi sekolah.
 
