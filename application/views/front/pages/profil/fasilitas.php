@@ -1,4 +1,4 @@
-<div class="container py-4">
+<!-- <div class="container py-4">
   <h2 class="mb-4 text-center fw-semibold">Daftar Fasilitas</h2>
 
   <?php if (!empty($fasilitas)) : ?>
@@ -91,4 +91,4 @@
     height: 220px;
   }
 }
-</style>
+</style> -->

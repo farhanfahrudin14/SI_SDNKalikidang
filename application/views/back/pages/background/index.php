@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col">
-			<h2>Background Jurusan</h2>
+			<h2>Background Kelas</h2>
 		</div>
 	</div>
 

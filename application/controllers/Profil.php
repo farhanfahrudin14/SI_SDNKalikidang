@@ -1,87 +1,85 @@
-<?php 
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Profil extends CI_Controller {
-	
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->model('fasilitas_model', 'fasilitas');
-		$this->load->model('struktur_model', 'struktur');
-		$this->load->model('Guru_model', 'guru'); // ✅ tambahin model guru
-	}
-	
-	public function sejarah()
-	{
-		$data['title'] = 'Sejarah';
-		$data['page']  = 'profil/sejarah';
 
-		$this->load->view('front/layouts/main', $data);
-	}
-
-	public function visimisi()
-	{
-		$data['title'] = 'Visi & Misi'; // ✅ rapihin judul biar konsisten
-		$data['page']  = 'profil/visimisi';
-
-		$this->load->view('front/layouts/main', $data);
-	}
-
-	public function struktur()
-	{
-		$data['title']     = 'Struktur Organisasi';
-		$data['page']      = 'profil/struktur';
-		$data['struktur']  = $this->struktur->getData();
-
-		$this->load->view('front/layouts/main', $data);
-	}
-
-	public function fasilitas()
-	{
-		$data['title']      = 'Fasilitas';
-		$data['page']       = 'profil/fasilitas';
-		$data['fasilitas']  = $this->fasilitas->getAllFasility();
-
-		$this->load->view('front/layouts/main', $data);
-	}
-
-	public function fasilitas_detail($id)
+   public function __construct()
 {
-    $data['title'] = 'Detail Fasilitas';
-    $data['page']  = 'profil/fasilitas_detail';
-    $data['fasilitas'] = $this->fasilitas->getDataById($id);
+    parent::__construct();
 
-    if (!$data['fasilitas']) {
-        show_404();
+    $this->load->model('FasilitasKategori_model', 'fasilitas_kategori');
+    $this->load->model('FasilitasFoto_model', 'fasilitas_foto');
+    $this->load->model('Struktur_model', 'struktur');
+    $this->load->model('Guru_model', 'guru');
+}
+
+
+    /* ===============================
+       PROFIL UMUM
+    =============================== */
+
+    public function sejarah()
+    {
+        $data['title'] = 'Sejarah';
+        $data['page']  = 'profil/sejarah';
+        $this->load->view('front/layouts/main', $data);
     }
 
-    $this->load->view('front/layouts/main', $data);
-}
+    public function visimisi()
+    {
+        $data['title'] = 'Visi & Misi';
+        $data['page']  = 'profil/visimisi';
+        $this->load->view('front/layouts/main', $data);
+    }
 
+    public function struktur()
+    {
+        $data['title']    = 'Struktur Organisasi';
+        $data['page']     = 'profil/struktur';
+        $data['struktur'] = $this->struktur->getData();
+        $this->load->view('front/layouts/main', $data);
+    }
 
-	// ✅ Tambahan untuk halaman Guru
-public function guru()
-{
-    $this->load->model('Guru_model', 'guru_model');
+    /* ===============================
+       FASILITAS (FRONT)
+    =============================== */
 
-    $data['title'] = 'Guru';
-    $data['page']  = 'profil/guru'; // ❗JANGAN ditambah "front/pages/"
+    // 📌 LIST KATEGORI FASILITAS
+    public function fasilitas()
+    {
+        $data['title']    = 'Fasilitas';
+        $data['page']     = 'fasilitas/v_index';
+        $data['kategori'] = $this->fasilitas_kategori->getKategoriWithThumbnail();
 
-    $data['guru']  = $this->guru_model->get_all();
+        $this->load->view('front/layouts/main', $data);
+    }
 
-    $this->load->view('front/layouts/main', $data);
-}
-public function insert($data)
-{
-    $data['date'] = date('Y-m-d H:i:s');
-    $this->db->insert('facilities', $data);
-}
+    // 📌 DETAIL FASILITAS
+    public function fasilitas_detail($id)
+    {
+        $kategori = $this->fasilitas_kategori->getById($id);
+        if (!$kategori) {
+            show_404();
+        }
 
-public function update($id, $data)
-{
-    $data['date'] = date('Y-m-d H:i:s');
-    $this->db->update('facilities', $data, ['id' => $id]);
-    return $this->db->affected_rows();
-}
+        $data['title']    = 'Detail Fasilitas';
+        $data['page']     = 'fasilitas/v_detail';
+        $data['kategori'] = $kategori;
+        $data['foto']     = $this->fasilitas_foto->getByKategori($id);
 
+        $this->load->view('front/layouts/main', $data);
+    }
+
+    /* ===============================
+       GURU
+    =============================== */
+
+    public function guru()
+    {
+        $data['title'] = 'Guru';
+        $data['page']  = 'profil/guru';
+        $data['guru']  = $this->guru->get_all();
+
+        $this->load->view('front/layouts/main', $data);
+    }
 }

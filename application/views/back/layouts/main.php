@@ -19,7 +19,7 @@
   <link href="<?= base_url() ?>asset/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 	<!-- Summernote -->
-  <link href="<?= base_url() ?>asset/vendor/summernote/dist/summernote-bs4.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs4.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="<?= base_url() ?>asset/css/sb-admin-2.min.css" rel="stylesheet">
@@ -113,28 +113,43 @@
    <script src="<?= base_url() ?>asset/vendor/chart.js/Chart.min.js"></script>
 
 	 <!-- Summernote -->
-   <script src="<?= base_url() ?>asset/vendor/summernote/dist/summernote-bs4.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs4.min.js"></script>
 
 	 <!-- Sweet Alert 2 -->
    <script src="<?= base_url() ?>asset/vendor/sweetalert2/sweetalert2.js"></script>
 
 	<script>
-      $('#summernote').summernote({
-         height: 300,
-			toolbar: [
-				// [groupName, [list of button]]
-				['style', ['bold', 'italic', 'underline', 'clear', 'fontname']],
-				['misc', ['undo', 'redo']],
-				['font', ['strikethrough', 'superscript', 'subscript']],
-				['fontsize', ['fontsize']],
-				['color', ['color']],
-				['para', ['ul', 'ol', 'paragraph']],
-				['height', ['height']],
-				['insert', ['table', 'link', 'hr', 'fullscreen']],
-			],
-			placeholder: 'Masukkan konten berita disini...'
-      });
-   </script>
+$(document).ready(function () {
+
+  // Summernote Judul (simple)
+  $('#summernote_judul').summernote({
+    height: 80,
+    toolbar: [
+      ['style', ['bold', 'italic', 'underline']],
+      ['font', ['fontsize']],
+      ['para', ['ul', 'ol']]
+    ],
+    placeholder: 'Masukkan judul prestasi...'
+  });
+
+  // Summernote Deskripsi (lengkap)
+  $('#summernote').summernote({
+    height: 300,
+    toolbar: [
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['font', ['strikethrough', 'superscript', 'subscript']],
+      ['fontsize', ['fontsize']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['insert', ['link', 'table']],
+      ['view', ['fullscreen', 'codeview']]
+    ],
+    placeholder: 'Masukkan deskripsi prestasi...'
+  });
+
+});
+</script>
+
 
 	<!-- For Datatable -->
    <?php 

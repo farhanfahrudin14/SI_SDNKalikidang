@@ -45,9 +45,13 @@
                             </td>
                             <td><?= $p->diupload ?></td>
                             <td>
-                                <a href="<?= site_url('c_prestasi/edit/'.$p->id) ?>" class="btn btn-warning btn-sm">Edit</a>
-                                <a href="<?= site_url('c_prestasi/destroy/'.$p->id) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus prestasi ini?')">Hapus</a>
-                            </td>
+    <a href="<?= site_url('c_prestasi/edit/'.$p->id) ?>"
+       class="btn btn-warning btn-sm">Edit</a>
+
+    <a href="<?= site_url('c_prestasi/hapus/'.$p->id) ?>"
+       class="btn btn-danger btn-sm">Hapus</a>
+</td>
+
                         </tr>
                         <?php endforeach; ?>
                     <?php else : ?>

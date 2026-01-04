@@ -8,14 +8,19 @@ class Ppdb extends CI_Controller {
         $this->load->model('Ppdb_model', 'ppdb');
     }
 
-    // ✅ Halaman daftar PPDB
-    public function index() {
-        $data['title'] = 'PPDB';
-        $data['page']  = 'ppdb/v_index';   // view untuk daftar PPDB
-        $data['ppdb']  = $this->ppdb->get_all(); // ambil semua data
+    // ✅ Halaman daftar PPDB (FRONTEND)
+public function index()
+{
+    // 🔹 hitung pengunjung PPDB
+    $this->hitung_pengunjung();
 
-        $this->load->view('front/layouts/main', $data);
-    }
+    $data['title'] = 'PPDB';
+    $data['page']  = 'ppdb/v_index';        // view daftar PPDB
+    $data['ppdb']  = $this->ppdb->get_all(); // ambil data PPDB
+
+    $this->load->view('front/layouts/main', $data);
+}
+
     // ✅ Halaman detail PPDB
 public function detail($id)
 {
@@ -29,5 +34,26 @@ public function detail($id)
     $data['page'] = 'ppdb/v_detail'; // view detail-nya
     $this->load->view('front/layouts/main', $data);
 }
+
+private function hitung_pengunjung()
+{
+    $today = date('Y-m-d');
+
+    $row = $this->db
+        ->get_where('ppdb_views', ['view_date' => $today])
+        ->row();
+
+    if ($row) {
+        $this->db->set('views', 'views+1', false)
+                 ->where('view_date', $today)
+                 ->update('ppdb_views');
+    } else {
+        $this->db->insert('ppdb_views', [
+            'view_date' => $today,
+            'views' => 1
+        ]);
+    }
+}
+
 
 }

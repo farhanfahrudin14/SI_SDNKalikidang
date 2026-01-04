@@ -25,8 +25,10 @@ class Prestasi_model extends CI_Model {
         return $this->db->where('id', $id)->update($this->table, $data);
     }
 
-    public function delete($id)
-    {
-        return $this->db->delete($this->table, ['id' => $id]);
-    }
+   public function delete($id)
+{
+    $this->db->where('id', $id);
+    return $this->db->delete('prestasi');
+}
+
 }

@@ -1,26 +1,16 @@
-# School Website
-Website sekolah dengan menggunakan framework CodeIgniter ini memiliki tampilan yang sederhana dan fitur yang mampu berfungsi dengan baik.
+# CodeIgniter 3 School Website Template
 
-To access admin page, add url /admin. Example http://localhost/school-website-master/admin
+Template website sekolah berbasis **CodeIgniter 3** dengan tampilan sederhana dan fitur administrasi yang fungsional. Cocok digunakan sebagai dasar pengembangan sistem informasi sekolah.
 
-## Tampilan Aplikasi
-![ss](asset/ss1.png)
-![ss](asset/ss2.png)
-![ss](asset/ss3.png)
-![ss](asset/ss4.png)
+## 🚀 Fitur
 
-## Admin Account
-|    Username    | Password |
-|:--------------:|---------:|
-| admin@mail.com | admin123 |
+- Halaman website sekolah (profil, informasi, dll)
+- Halaman admin untuk pengelolaan konten
+- Manajemen data menggunakan DataTables
+- Editor teks menggunakan Summernote
+- Autentikasi admin dengan Ion Auth
+- Notifikasi interaktif menggunakan SweetAlert2
 
+## 🔐 Akses Halaman Admin
 
-Tools:
-- Codeiginiter 3
-- MySql
-- Bootstrap 4
-- Jquery
-- Datatables
-- Summernote
-- Sweetalert2
-- Codeigniter Ion Auth
+Tambahkan `/admin` pada URL aplikasi.

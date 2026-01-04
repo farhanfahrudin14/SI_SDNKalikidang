@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2025 at 06:58 PM
+-- Generation Time: Jan 04, 2026 at 05:20 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.3.33
 
@@ -82,89 +82,90 @@ INSERT INTO `bg_majors` (`id`, `photo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ekskul`
+-- Table structure for table `ekstrakurikuler_foto`
 --
 
-CREATE TABLE `ekskul` (
+CREATE TABLE `ekstrakurikuler_foto` (
   `id` int(11) NOT NULL,
-  `judul` varchar(255) NOT NULL,
-  `deskripsi` text DEFAULT NULL,
-  `foto` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `kategori_id` int(11) NOT NULL,
+  `foto` varchar(150) NOT NULL,
+  `tanggal_upload` date DEFAULT curdate()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `ekskul`
+-- Dumping data for table `ekstrakurikuler_foto`
 --
 
-INSERT INTO `ekskul` (`id`, `judul`, `deskripsi`, `foto`, `created_at`, `updated_at`) VALUES
-(3, 'Karawitan', 'loem ipsuemmwavh', 'karawitan.jpg', '2025-09-08 05:03:01', '2025-12-09 18:07:33'),
-(4, 'Pramuka', NULL, 'pramuka.jpg', '2025-09-08 05:08:07', '2025-09-08 06:28:29'),
-(5, 'Tari', NULL, 'tari.jpg', '2025-11-18 15:15:52', '2025-11-18 15:15:52'),
-(6, 'n', 'nbnb', 'WhatsApp_Image_2025-11-30_at_19_44_24.jpeg', '2025-12-09 17:59:48', '2025-12-09 17:59:48');
+INSERT INTO `ekstrakurikuler_foto` (`id`, `kategori_id`, `foto`, `tanggal_upload`) VALUES
+(1, 3, 'ebc19975adc0c15c6d9136b49fb584de.png', '2025-12-29'),
+(2, 1, 'bb3fe9c1ed9d8e1b5786e6dcd34b9da6.jpg', '2025-12-29'),
+(4, 1, '1a70879001740029663b745652291709.jpeg', '2025-12-29'),
+(5, 1, '2f23430e8f17be96ec5c56233d7b71a8.jpeg', '2025-12-29'),
+(7, 1, '593c9ad62a89763ca949c1d73ccab0ce.jpeg', '2025-12-29');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `facilities`
+-- Table structure for table `ekstrakurikuler_kategori`
 --
 
-CREATE TABLE `facilities` (
+CREATE TABLE `ekstrakurikuler_kategori` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `description` text DEFAULT NULL,
-  `photo` varchar(100) NOT NULL,
-  `date` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `facilities`
---
-
-INSERT INTO `facilities` (`id`, `name`, `description`, `photo`, `date`) VALUES
-(3, 'Ruang kelas', 'Ruang kelas ini dirancang untuk menciptakan lingkungan belajar yang nyaman dan menyenangkan bagi siswa. Meja dan kursi tersusun rapi sesuai dengan kebutuhan anak-anak, sementara papan tulis di depan memudahkan guru dalam menyampaikan pelajaran. Cahaya alami yang masuk melalui jendela membuat suasana kelas terasa terang dan hangat, mendukung fokus belajar. Dengan kebersihan yang terjaga dan tata letak yang rapi, ruang kelas ini menjadi tempat yang aman dan kondusif bagi siswa untuk belajar, berdiskusi, dan berkreasi.', 'ruang-kelas-20250906094837.jpg', '2025-12-10'),
-(4, 'Perpustakaan', 'Perpustakaan sekolah ini menyediakan berbagai koleksi buku yang menarik dan edukatif untuk mendukung kegiatan belajar siswa. Rak-rak buku tertata rapi, memudahkan anak-anak mencari bacaan favorit mereka. Suasana perpustakaan yang tenang dan nyaman membuat siswa betah membaca, belajar, serta mengembangkan imajinasi dan pengetahuan mereka. Pencahayaan yang cukup dan ruang baca yang luas menciptakan lingkungan yang kondusif untuk belajar secara mandiri maupun berkelompok.', 'perpustakaan-20250906094847.jpg', '2025-12-10'),
-(5, 'Kantin', NULL, 'kantin-20250906094919.jpg', NULL),
-(6, 'Lapangan Upacara', NULL, 'lapangan-20250906094930.jpg', NULL),
-(9, 'Musholla', NULL, 'musholla-20250906094943.jpg', NULL),
-(11, 'Aula', NULL, 'aula-20250906095001.jpg', NULL),
-(12, 'Ruang Seni Musik', NULL, 'ruang-seni-musik-20250906095023.jpg', NULL),
-(13, 'Ruang UKS', NULL, 'ruang-uks-20250906095039.jpg', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `galeri`
---
-
-CREATE TABLE `galeri` (
-  `id` int(11) NOT NULL,
-  `foto` varchar(255) DEFAULT NULL,
+  `nama_kategori` varchar(100) NOT NULL,
   `deskripsi` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ekstrakurikuler_kategori`
+--
+
+INSERT INTO `ekstrakurikuler_kategori` (`id`, `nama_kategori`, `deskripsi`, `created_at`) VALUES
+(1, 'Kegiatan Belajarr', 'lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet', '2025-12-29 06:43:54'),
+(3, 'ghcvhgvhy', 'nvg', '2025-12-29 07:14:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fasilitas_foto`
+--
+
+CREATE TABLE `fasilitas_foto` (
+  `id` int(11) NOT NULL,
+  `kategori_id` int(11) NOT NULL,
+  `foto` varchar(255) NOT NULL,
   `tanggal_upload` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `galeri`
+-- Dumping data for table `fasilitas_foto`
 --
 
-INSERT INTO `galeri` (`id`, `foto`, `deskripsi`, `tanggal_upload`) VALUES
-(10, 'penyerahan_piala.jpg', 'Penyerahan piala kepada siswa berprestasi sebagai bentuk apresiasi atas usaha dan pencapaian mereka', '2025-11-18'),
-(11, 'membaca_asma_ul_husna.jpg', 'Kegiatan membaca Asmaul Husna setiap Jumat pagi sebagai pembiasaan rutin untuk menumbuhkan sikap religius pada siswa-siswi SDN Kalikidang', '2025-11-18'),
-(12, 'kegiatan_persari_siaga.jpg', 'Siswa dan siswi mengikuti kegiatan persari siaga', '2025-11-18'),
-(13, 'karnaval_pramuka.jpg', 'Kegiatan karnaval pramuka yang diikuti siswa-siswi SDN Kalikidang', '2025-11-18'),
-(14, 'foto_bersama_peserta_lomba_mapsi.jpg', 'Foto bersama dengan para peserta lomba mapsi', '2025-11-18'),
-(15, 'jambore_penggalang.jpg', 'Kegiatan Jambore Penggalang yang diikuti siswa-siswi SDN Kalikidang', '2025-11-18'),
-(16, 'maulid_nabi.jpg', 'Kegiatan peringatan Maulid Nabi yang diikuti siswa-siswi SDN Kalikidang', '2025-11-18'),
-(17, 'kegiatan_pramuka.jpg', 'Kegiatan kepramukaan wajib yang diikuti siswa-siswi SDN Kalikidang', '2025-11-18'),
-(18, 'sosialisasi_visi_misi.jpg', 'Kegiatan sosialisasi visi dan misi program sekolah yang diikuti oleh guru-guru SDN Kalikidang', '2025-11-18'),
-(19, 'pengujian_pramuka_garuda.jpg', 'Kegiatan pengujian pencapaian pramuka garuda kwartir ranting sokaraja', '2025-11-18'),
-(20, 'pramuka.jpg', 'Kegiatan kepramukaan wajib yang diikuti siswa-siswi SDN Kalikidang', '2025-11-18'),
-(21, 'kegiatan_kesenian_karawitan.jpg', 'Kegiatan ekstrakurikuler kesenian musik karawitan yang diikuti siswa-siswi SDN Kalikidang', '2025-11-18'),
-(22, 'tari.jpg', 'Kegiatan kesenian tari yang diikuti siswa-siswi SDN Kalikidang', '2025-11-18'),
-(23, 'pelatihan_ketua_gudep_dan_pembina_gudep.jpg', 'Kegiatan pelatihan ketua gudep dan pembina gudep SDN Kalikidang', '2025-11-18'),
-(24, 'pembiasaan_rutin.jpg', 'Kegiatan pembiasaan pagi, guru menyambut siswa di gerbang sekolah dan siswa menyalami guru sebagai bentuk sopan santun dan pembiasaan karakter positif', '2025-12-06');
+INSERT INTO `fasilitas_foto` (`id`, `kategori_id`, `foto`, `tanggal_upload`) VALUES
+(1, 1, 'f2c6b8a8747ea2560a19fff9780dcef5.jpg', '2025-12-29'),
+(2, 2, '314b17e2f7ece97a1fee9b2836508584.jpg', '2025-12-30'),
+(3, 2, 'fbf025816464939ff970552fa29183bb.jpg', '2025-12-30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fasilitas_kategori`
+--
+
+CREATE TABLE `fasilitas_kategori` (
+  `id` int(11) NOT NULL,
+  `nama_kategori` varchar(150) NOT NULL,
+  `deskripsi` text DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `fasilitas_kategori`
+--
+
+INSERT INTO `fasilitas_kategori` (`id`, `nama_kategori`, `deskripsi`, `created_at`) VALUES
+(1, 'dolor is amet', 'lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is ametlorem ipsum dolor is ametlorem ipsum dolor is ametlorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet lorem ipsum dolor is amet', '2025-12-29 19:56:12'),
+(2, 'lorem ipsum', 'lorem ipsum dolor is amet', '2025-12-30 14:44:42');
 
 -- --------------------------------------------------------
 
@@ -185,13 +186,21 @@ CREATE TABLE `galeri_foto` (
 --
 
 INSERT INTO `galeri_foto` (`id`, `kategori_id`, `foto`, `tanggal_upload`, `deskripsi`) VALUES
-(6, 4, 'WhatsApp_Image_2025-11-30_at_20_54_57.jpeg', '2025-12-09', 'lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum'),
-(7, 4, 'referensi_data_kemendikdasmen_go_id_tppk_tppk_anggota_203002041.png', '2025-12-09', NULL),
-(8, 3, 'WhatsApp_Image_2025-11-26_at_15_48_45.jpeg', '2025-12-10', NULL),
-(9, 3, 'WhatsApp_Image_2025-11-26_at_16_06_11.jpeg', '2025-12-10', NULL),
-(10, 3, 'localhost_SDNKalikidang_galeri_(1).png', '2025-12-16', NULL),
-(11, 6, 'WhatsApp_Image_2025-11-28_at_21_37_15.jpeg', '2025-12-17', 'apa si an                                 '),
-(12, 6, 'localhost_SDNKalikidang_c_galeri_foto_detail_4.png', '2025-12-17', 'hahah');
+(8, 3, 'karnaval_pramuka1.jpg', '2025-12-10', 'Kegiatan karnaval pramuka'),
+(9, 3, 'pelatihan_ketua_gudep_dan_pembina_gudep1.jpg', '2025-12-10', 'Kegiatan pelatihan ketua gudep dan pembuna gudep'),
+(10, 3, 'pramuka1.jpg', '2025-12-16', 'Kegiatan kepramukaan'),
+(13, 3, 'pengujian_pramuka_garuda1.jpg', '2025-12-18', 'Kegiatan pengujian pramuka garuda kwartir ranting sokaraja'),
+(14, 3, 'kegiatan_pramuka1.jpg', '2025-12-18', 'Kegiatan kepramukaan          '),
+(15, 3, 'jambore_penggalang1.jpg', '2025-12-18', 'Kegiatan jambore penggalang'),
+(16, 3, 'kegiatan_persari_siaga1.jpg', '2025-12-18', 'Kegiatan persari siaga'),
+(17, 4, 'pembiasaan_rutin1.jpg', '2025-12-18', 'Pembiasaan rutin guru menyambut siswa di gerbang sekolah pada pagi hari'),
+(18, 4, 'membaca_asma_ul_husna1.jpg', '2025-12-18', 'Kegiatan membaca asma ul husna setiap jumat pagi'),
+(19, 4, 'maulid_nabi1.jpg', '2025-12-18', 'Kegiatan memperingati maulid Nabi Muhammad SAW          '),
+(20, 6, 'tari1.jpg', '2025-12-18', 'Kegiatan ekstrakurikuler tari'),
+(21, 6, 'kegiatan_kesenian_karawitan1.jpg', '2025-12-18', 'Kegiatan ekstrakurikuler karawitan'),
+(22, 6, 'pramuka2.jpg', '2025-12-18', 'Kegiatan ekstrakurikuler pramuka'),
+(23, 7, 'penyerahan_piala1.jpg', '2025-12-18', 'Penyerahan piala kepada siswa yang menang lomba          '),
+(24, 7, 'foto_bersama_peserta_lomba_mapsi1.jpg', '2025-12-18', 'Foto bersama peserta lomba mapsi');
 
 -- --------------------------------------------------------
 
@@ -210,9 +219,10 @@ CREATE TABLE `galeri_kategori` (
 --
 
 INSERT INTO `galeri_kategori` (`id`, `nama_kategori`, `deskripsi`) VALUES
-(3, 'pramuka', 'lorem ipsum'),
-(4, 'upcara bendara', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions'),
-(6, 'Kegiatan Belajar', NULL);
+(3, 'Pramuka', 'lorem ipsum'),
+(4, 'Kegiatan Pembiasaan', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions'),
+(6, 'Kegiatan Ekstrakurikuler', NULL),
+(7, 'Kegiatan Lomba', NULL);
 
 -- --------------------------------------------------------
 
@@ -330,13 +340,6 @@ CREATE TABLE `login_attempts` (
   `time` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `login_attempts`
---
-
-INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
-(0, '::1', 'admin@example.com', 1765992942);
-
 -- --------------------------------------------------------
 
 --
@@ -370,9 +373,31 @@ CREATE TABLE `materi_pelajaran` (
 --
 
 INSERT INTO `materi_pelajaran` (`id`, `judul`, `isi`, `created_at`, `deskripsi`, `kelas`, `file`, `id_user`) VALUES
-(21, 'Matematika', NULL, '2025-11-21 13:19:57', 'Materi Pelajaran Matematika Kelas 2', 2, 'Matematika-Vol-1-BS-KLS-II.pdf', 1),
-(30, 'coba', NULL, '2025-12-17 17:06:24', 'coba', 6, 'form_usulan_skripsi_(1).pdf', NULL),
-(31, 'n', NULL, '2025-12-17 17:08:23', 'n', 6, 'form_pendaftaran_uji_proposal_(1).pdf', NULL);
+(35, 'Matematika', NULL, '2025-12-18 16:22:27', 'Materi Pelajaran Matematika Kelas 2', 2, 'Matematika-Vol-1-BS-KLS-II.pdf', NULL),
+(36, 'Pendidikan Agama Islam ', NULL, '2025-12-18 16:23:41', 'Materi Pelajaran PAI Kelas 2', 2, 'Islam-BS-KLS-II.pdf', NULL),
+(37, 'Bahasa Inggris', NULL, '2025-12-18 16:25:48', 'Materi Pelajaran Bahasa Inggris Kelas 1', 1, 'Bahasa-Inggris-BS-KLS-I.pdf', NULL),
+(40, 'Pendidikan Pancasila Kelas 1', NULL, '2025-12-18 16:33:27', 'Materi Pelajaran Pendidikan Pancasila Kelas 1', 1, 'Pendidikan-Pancasila-BS-KLS-I.pdf', NULL),
+(42, 'IPAS Kelas III', NULL, '2025-12-18 17:56:24', 'Materi Pelajaran IPAS Kelas III', 3, 'IPAS-BS-KLS-III_11zon.pdf', NULL),
+(43, 'Matematika', NULL, '2025-12-18 18:37:29', 'Materi Pelajaran Matematika Kelas 1', 1, 'Matematika-BS-KLS-I_11zon.pdf', NULL),
+(44, 'Bahasa Indonesia', NULL, '2025-12-18 18:38:22', 'Materi Pelajaran Bahasa Indonesia Kelas 1', 1, 'Bahasa-Indonesia-BS-KLS-I_11zon.pdf', NULL),
+(45, 'Pendidikan Agama Islam ', NULL, '2025-12-18 18:39:36', 'Materi Pelajaran PAI Kelas 1', 1, 'Islam-BS-KLS-I_11zon.pdf', NULL),
+(46, 'Bahasa Inggris', NULL, '2025-12-18 18:50:07', 'Materi Pelajaran Bahasa Inggris Kelas 2', 2, 'Bahasa-Inggris-BS-KLS-II_11zon.pdf', NULL),
+(47, 'Bahasa Indonesia', NULL, '2025-12-18 18:51:12', 'Materi Pelajaran Bahasa Indonesia Kelas 2', 2, 'Bahasa-Indonesia-BS-KLS-II_11zon.pdf', NULL),
+(48, 'Bahasa Inggris', NULL, '2025-12-18 19:07:01', 'Materi Pelajaran Bahasa Inggris Kelas 3', 3, 'Inggris_BS_KLS_III_Lc_11zon.pdf', NULL),
+(49, 'Pendidikan Pancasila', NULL, '2025-12-18 19:08:17', 'Materi Pendidikan Pancasila Kelas 3', 3, 'Pendidikan-Pancasila-BS-KLS-III.pdf', NULL),
+(50, 'Bahasa Indonesia', NULL, '2025-12-18 19:10:57', 'Materi Pelajaran Bahasa Indonesia Kelas 4', 4, 'Bahasa-Indonesia-BS-KLS-IV_11zon1.pdf', NULL),
+(51, 'Matematika', NULL, '2025-12-18 19:12:35', 'Materi Pelajaran Matematika kelas 4', 4, 'Matematika-BS-KLS-IV.pdf', NULL),
+(52, 'Bahasa Inggris', NULL, '2025-12-18 19:14:29', 'Materi Pelajaran Bahasa Inggris Kelas 4', 4, 'Bahasa-Inggris-BS-KLS-IV.pdf', NULL),
+(53, 'Bahasa Indonesia', NULL, '2025-12-18 19:15:51', 'Materi Pelajaran Bahasa Indonesia Kelas 5', 5, 'Bahasa-Indonesia-BS-KLS-V_11zon_(1).pdf', NULL),
+(54, 'Pendidikan Agama Islam ', NULL, '2025-12-18 19:17:22', 'Materi PAI Kelas 5', 5, 'Islam-BS-KLS-V_11zon_11zon.pdf', NULL),
+(55, 'IPAS', NULL, '2025-12-18 19:22:11', 'Materi Pelajaran IPAS Kelas 5', 5, 'IPAS-BS-KLS-V.pdf', NULL),
+(56, 'Matematika', NULL, '2025-12-18 19:23:06', 'Materi Pelajaran Matematika Kelas 5', 5, 'Matematika-BS-KLS-V.pdf', NULL),
+(57, 'Bahasa Inggris', NULL, '2025-12-18 19:24:10', 'Materi Pelajaran Bahasa Ingris', 5, 'Bahasa-Inggris-BS-KLS-V_11zon.pdf', NULL),
+(58, 'Bahasa Indonesia', NULL, '2025-12-18 19:25:30', 'Materi Pelajaran Bahasa Indonesia Kelas 6', 6, 'Bahasa-Indonesia-BS-KLS-VI_11zon.pdf', NULL),
+(59, 'Matematika', NULL, '2025-12-18 19:26:24', 'Materi Pelajaran Matematika Kelas 6', 6, 'Matematika_BS_KLS_VI_11zon_(1).pdf', NULL),
+(60, 'IPAS', NULL, '2025-12-18 19:27:29', 'Materi Pelajaran IPAS Kelas 6', 6, 'IPAS-BS-KLS-VI_11zon.pdf', NULL),
+(61, 'Bahasa Inggris', NULL, '2025-12-18 19:28:29', 'Materi Pelajaran Bahasa Inggris Kelas 6', 6, 'Inggris_BS_KLS_VI_Lc_11zon.pdf', NULL),
+(62, 'Pendidikan Pancasila ', NULL, '2025-12-18 19:30:36', 'Materi Pelajaran Pendidikan Pancasila Kelas 6', 6, 'Pendidikan-Pancasila-BS-KLS-VI.pdf', NULL);
 
 -- --------------------------------------------------------
 
@@ -399,11 +424,13 @@ INSERT INTO `menus` (`id`, `user_id`, `title`, `url`, `icon`, `is_active`) VALUE
 (4, 2, 'Struktur Organisasi', 'struktur', 'fas fa-fw fa-sitemap', 'Y'),
 (5, 1, 'Manajemen User', 'user', 'fas fa-fw fa-user', 'Y'),
 (8, 2, 'Akademik', '#', 'fas fa-fw fa-book', 'Y'),
-(9, 1, 'PPDB', 'c_ppdb', 'fas fa-file-alt', 'Y'),
+(9, 1, 'PPDB', '#', 'fas fa-file-alt', 'Y'),
 (10, 1, 'Guru', 'c_guru', 'fas fa-chalkboard-teacher', 'Y'),
 (11, 1, 'Kontak', 'c_kontak', 'fas fa-fw fa-envelope', 'Y'),
 (13, 1, 'Galeri', '#', 'fas fa-images', 'Y'),
-(14, 2, 'Profile', '', 'fas fa-fw fa-home', 'Y');
+(15, 2, 'Ekstrakurikuler', '#', 'fas fa-running', 'Y'),
+(16, 2, 'Fasilitas', '#', 'fas fa-building', 'Y'),
+(17, 2, 'Profile', '', 'fas fa-fw fa-home', 'Y');
 
 -- --------------------------------------------------------
 
@@ -450,9 +477,7 @@ INSERT INTO `posts` (`id`, `title`, `seo_title`, `content`, `photo`, `is_active`
 (1, 'Pelepasan Siswa/Siswi Kelas VI SD N Kalikidang Tahun Pelajaran 2024/2025', 'pelepasan-siswa-siswi-kelas-vi-sd-n-kalikidang-tahun-pelajaran-2024-2025', 'SD Negeri Kalikidang melaksanakan acara Pelepasan Siswa/Siswi Kelas VI Tahun Pelajaran 2024/2025. Kegiatan ini diikuti oleh siswa kelas VI, orang tua, dan dewan guru dalam suasana yang hangat dan penuh kebahagiaan. Acara diisi dengan sambutan kepala sekolah, penampilan siswa, serta penyampaian kesan dan pesan. Melalui kegiatan ini, sekolah berharap para lulusan dapat melanjutkan pendidikan ke jenjang berikutnya dengan semangat dan membawa kenangan baik selama bersekolah di SD Negeri Kalikidang.', '-20251205044812.jpg', 'Y', '2025-12-05', 1, NULL),
 (2, 'Peringatan Maulid Nabi SAW di SD Negeri Kalikidang', 'peringatan-maulid-nabi-saw-di-sd-negeri-kalikidang', 'SD Negeri Kalikidang mengadakan Peringatan Maulid Nabi Muhammad SAW yang diikuti seluruh siswa dan guru. Acara diisi dengan pembacaan ayat suci Al-Qur’an, shalawat, dan ceramah singkat tentang keteladanan Rasulullah. Melalui kegiatan ini, sekolah berharap siswa dapat meneladani akhlak Nabi dan memperkuat karakter religius. Acara berlangsung dengan khidmat dan penuh makna.', '-20251205044831.jpg', 'Y', '2025-12-05', 1, NULL),
 (3, 'MBG', 'mbg', 'SD Negeri Kalikidang sudah mendapatkan MBG.', '-20251205053741.jpg', 'Y', '2025-12-05', 1, NULL),
-(4, 'Pembiasaan Membaca Asmaul Husna Setiap Jumat', 'pembiasaan-membaca-asmaul-husna-setiap-jumat', 'SD Negeri Kalikidang melaksanakan kegiatan rutin membaca Asmaul Husna setiap Jumat pagi. Seluruh siswa dan guru mengikuti kegiatan ini dengan tertib sebelum pembelajaran dimulai. Melalui pembiasaan ini, sekolah berharap siswa dapat memperkuat karakter religius serta membiasakan diri dengan nilai-nilai keislaman dalam kehidupan sehari-hari. Kegiatan ini akan terus dilaksanakan sebagai upaya membangun lingkungan sekolah yang berakhlak dan religius.', '-20251205053900.jpg', 'Y', '2025-12-05', 1, NULL),
-(41, 'wkwk', 'wkwk', 'kwkw', 'fe4cc5b8ab38d1aa481d4d1ac97b66be.png', 'Y', '2025-12-17', 13, 'Guru'),
-(42, 'apaa woii', 'apaa-woii', 'woii', 'dd5f6a598834c431156916261a4941c3.jpeg', 'Y', '2025-12-17', 11, 'Admin Biasa');
+(4, 'Pembiasaan Membaca Asmaul Husna Setiap Jumat', 'pembiasaan-membaca-asmaul-husna-setiap-jumat', 'SD Negeri Kalikidang melaksanakan kegiatan rutin membaca Asmaul Husna setiap Jumat pagi. Seluruh siswa dan guru mengikuti kegiatan ini dengan tertib sebelum pembelajaran dimulai. Melalui pembiasaan ini, sekolah berharap siswa dapat memperkuat karakter religius serta membiasakan diri dengan nilai-nilai keislaman dalam kehidupan sehari-hari. Kegiatan ini akan terus dilaksanakan sebagai upaya membangun lingkungan sekolah yang berakhlak dan religius.', '-20251205053900.jpg', 'Y', '2025-12-05', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -474,7 +499,28 @@ CREATE TABLE `ppdb` (
 --
 
 INSERT INTO `ppdb` (`id`, `judul`, `deskripsi`, `link`, `foto`, `created_at`) VALUES
-(6, 'SISTEM PENERIMAAN MURID BARU SEKOLAH DASAR NEGERI KALIKIDANG TAHUN PELAJARAN 2025/2026', 'Syarat calon peserta didik baru Sekolah Dasar Negeri Kalikidang\r\nPada Tanggal 1 Juli 2025 :\r\n1. Telah berusia 6 (enam) tahun\r\n2. Mengisi Formulir Pendaftaran\r\n3. Menyerahkan fotokopi Akta Kelahiran, Kartu keluarga, Ijazah TK, dan Kartu PKH (Jika memiliki)\r\n\r\nSiapkan NIK siswa/orang tua untuk mengisi form\r\n(Jika belum ada NIK isi dengan angka 0) \r\n\r\nInformasi Pendaftaran lebih lengkap dapat menghubungi:\r\nBu Ice Herna Trisnaningsih, S.Pd    085803428089\r\nBu Katarina Dwi Anggarini, S.Pd     081327433199\r\n\r\nUntuk link pendaftaran silahkan klik tombol dibawah ini', 'https://bit.ly/SPMBSDKalikidang2025', '10a197f264aaf2800abdcf12172dcfd9.jpg', '2025-09-09 05:34:21');
+(7, 'SISTEM PENERIMAAN MURID BARU SEKOLAH DASAR NEGERI KALIKIDANG TAHUN PELAJARAN 2025/2026', 'Syarat calon peserta didik baru Sekolah Dasar Negeri Kalikidang\r\nPada Tanggal 1 Juli 2025 :\r\n1. Telah berusia 6 (enam) tahun\r\n2. Mengisi Formulir Pendaftaran\r\n3. Menyerahkan fotokopi Akta Kelahiran, Kartu keluarga, Ijazah TK, dan Kartu PKH (Jika memiliki)\r\n\r\nSiapkan NIK siswa/orang tua untuk mengisi form\r\n(Jika belum ada NIK isi dengan angka 0) \r\n\r\nInformasi Pendaftaran lebih lengkap dapat menghubungi:\r\nBu Ice Herna Trisnaningsih, S.Pd    085803428089\r\nBu Katarina Dwi Anggarini, S.Pd     081327433199\r\n\r\nUntuk link pendaftaran silahkan klik tombol dibawah ini\r\n', 'https://bit.ly/SPMBSDKalikidang2025', '33bc6be666ce816a81ff5ed2fb67ab3f.jpg', '2025-12-28 09:54:19');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ppdb_views`
+--
+
+CREATE TABLE `ppdb_views` (
+  `id` int(11) NOT NULL,
+  `view_date` date NOT NULL,
+  `views` int(11) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ppdb_views`
+--
+
+INSERT INTO `ppdb_views` (`id`, `view_date`, `views`) VALUES
+(1, '2025-12-28', 18),
+(2, '2025-12-29', 1),
+(3, '2025-12-30', 8);
 
 -- --------------------------------------------------------
 
@@ -498,14 +544,15 @@ CREATE TABLE `prestasi` (
 --
 
 INSERT INTO `prestasi` (`id`, `judul`, `deskripsi`, `foto`, `aktif`, `diupload`, `isi`, `created_at`) VALUES
-(4, 'Juara 3 Maca lan Nulis Aksara Jawa', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Chitami is\'ro Fadiyah atas prestasinya sebagai Juara 3 Maca lan Nulis Aksara Jawa.', '86c0627554d414f81656222a9f288494.jpg', 'Y', '2025-09-07 13:01:13', NULL, '2025-09-07 11:01:13'),
+(4, '<p>Juara 3 <i>Maca lan Nulis Aksara Jawa</i></p>', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada <b>Chitami is\'ro Fadiyah</b> atas prestasinya sebagai Juara 3 <i>Maca lan Nulis Aksara Jawa.</i>', '86c0627554d414f81656222a9f288494.jpg', 'Y', '2025-09-07 13:01:13', NULL, '2025-09-07 11:01:13'),
 (5, 'Juara 3 Menulis Cerkak', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Ahmad Faizal Arifin atas prestasinya sebagai Juara 3 Menulis Cerkak.', '19a78bf06073dc611846560668ad4f4e.jpg', 'Y', '2025-09-07 14:54:09', NULL, '2025-09-07 12:54:09'),
 (6, 'Juara 3 Menulis Cerkak', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Thiffani Oktaviani atas prestasinya sebagai Juara 3 Menulis Cerkak.', '65139a8153bba5cdc4ffe1e332110afc.jpg', 'Y', '2025-09-07 14:57:07', NULL, '2025-09-07 12:57:07'),
 (7, 'Juara 2 Maca lan Nulis Aksara Jawa', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Bahy Yoga Asmoro atas prestasinya sebagai Juara 2 Maca lan Nulis Aksara Jawa.', '3466d752bd887949e829e542246a1f19.jpg', 'Y', '2025-09-07 14:59:01', NULL, '2025-09-07 12:59:01'),
 (8, 'Juara 1 Lomba O2SN ATHLETIC KIDS KANGA\'S ESCSPE PUTRI Tingkat Kecamatan', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Zahra Adelia atas prestasinya sebagai Juara 1 Lomba O2SN ATHLETIC KIDS KANGA\'S ESCSPE PUTRI Tingkat Kecamatan.', 'aef7190aef7bc4aa4f027baa02889f43.jpg', 'Y', '2025-09-07 15:08:17', NULL, '2025-09-07 13:08:17'),
 (9, 'Juara 1 Lomba FLS2N Tingkat Kecamatan Cabang Gambar Bercerita', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Syarif Maulana Wijaya atas prestasinya sebagai Juara 1 Lomba FLS2N Tingkat Kecamatan Cabang Gambar Bercerita.', '86924ba8dacf7fabe3e6d68631dd6a09.jpg', 'Y', '2025-09-07 15:12:05', NULL, '2025-09-07 13:12:05'),
 (10, 'Juara 1 Lomba FLS2N Tingkat Kecamatan Cabang Seni Tari', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Mutiara Dian Nur Alifah, Silvana Syafa Qafkhani, dan Rahma Nur Fadhillah, atas prestasinya sebagai Juara 1 Lomba FLS2N Tingkat Kecamatan Cabang Seni Tari.', 'd52ec1378333be11d8f85e677193434b.jpg', 'Y', '2025-09-07 15:15:31', NULL, '2025-09-07 13:15:31'),
-(11, 'Juara 1 Lomba FLS2N Tingkat Kecamatan Cabang Seni Kriya', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Gendis Azzura Nida atas prestasinya sebagai Juara 1 Lomba FLS2N Tingkat Kecamatan Cabang Seni Kriya.', 'cd0814735cbda2d4e8bfa212f16f085b.jpg', 'Y', '2025-09-07 15:17:27', NULL, '2025-09-07 13:17:27');
+(11, 'Juara 1 Lomba FLS2N Tingkat Kecamatan Cabang Seni Kriya', 'SD Negeri Kalikidang mengucapkan selamat dan sukses kepada Gendis Azzura Nida atas prestasinya sebagai Juara 1<i> </i>Lomba FLS2N Tingkat Kecamatan Cabang Seni Kriya.', 'cd0814735cbda2d4e8bfa212f16f085b.jpg', 'Y', '2025-09-07 15:17:27', NULL, '2025-09-07 13:17:27'),
+(12, '<p>Maca lan Nulis</p>', '<p>lorem ispum dolor is amet</p>', '31fccb83f8b32db36a62099bf57d6aff.jpeg', 'Y', '2025-12-30 05:08:26', NULL, '2025-12-30 04:08:26');
 
 -- --------------------------------------------------------
 
@@ -547,14 +594,18 @@ INSERT INTO `submenus` (`id`, `menu_id`, `sub_title`, `sub_url`, `is_active`) VA
 (1, 1, 'Identitas Web', 'identitas', 'Y'),
 (2, 1, 'Sambutan', 'sambutan', 'Y'),
 (3, 3, 'Banner', 'banner', 'Y'),
-(4, 3, 'Fasilitas', 'fasilitas', 'Y'),
 (5, 3, 'Berita', 'berita', 'Y'),
 (6, 3, 'Background Kelas', 'background', 'Y'),
 (7, 8, 'Materi Pelajaran', 'c_materi', 'Y'),
-(8, 8, 'Ekstrakurikuler', 'c_ekskul', 'Y'),
 (9, 8, 'Prestasi', 'c_prestasi', 'Y'),
 (11, 13, 'Kategori Galeri', 'c_galeri_kategori', 'Y'),
-(12, 13, 'Foto Galeri', 'c_galeri_foto', 'Y');
+(12, 13, 'Foto Galeri', 'c_galeri_foto', 'Y'),
+(13, 9, 'Kelola PPDB', 'c_ppdb', 'Y'),
+(14, 9, 'Rekap PPDB', 'c_ppdb/rekap', 'Y'),
+(15, 15, 'Kategori Ekstrakurikuler', 'c_ekstrakurikuler_kategori', 'Y'),
+(16, 15, 'Foto Ekstrakurikuler', 'c_ekstrakurikuler_foto', 'Y'),
+(17, 16, 'Kategori Fasilitas', 'c_fasilitas_kategori', 'Y'),
+(18, 16, 'Foto Fasilitas', 'c_fasilitas_foto', 'Y');
 
 -- --------------------------------------------------------
 
@@ -590,10 +641,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `photo`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$ZUpa8cwvREWaSyYWtCKMLeOWGt3fC2VDKGDRSLJ/.uIYXJ2n9CrBi', 'cybergraphics14@gmail.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1765994188, 1, 'Super Admin', 'SD Negeri Kalikidang', NULL, '2147483647', NULL),
-(11, '::1', 'farhanfahrudin1933@gmail.com', '$2y$10$tbc5Udw3.7qdSGyuO5/.vuOke0twb7F7HiXzTyaVCW48ZaAzXmQIS', 'umkmfokusku2025@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1765528706, 1765992032, 1, 'farhan', 'fahrudin', NULL, '099798787987', NULL),
-(13, '::1', 'guru@gmail.com', '$2y$10$Vghrih6PzNuwvnHa94.CZ.9ImygxfbjyLex9RNMnOjslNpcBzI39u', 'guru@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1765549397, 1765993807, 1, 'guru', '1', '', '', NULL),
-(15, '::1', 'admin3@gmail.com', '$2y$10$JpxWn5L4ukzgvTB8zM9equda7CqZjGERHIVcEZbAD3S1MVZQEDeIW', 'admin3@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1765892841, 1765896451, 1, 'admin3', 'admin3', '', '', NULL);
+(1, '127.0.0.1', 'administrator', '$2y$12$ZUpa8cwvREWaSyYWtCKMLeOWGt3fC2VDKGDRSLJ/.uIYXJ2n9CrBi', 'rantinuramiraigustin@gmail.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1767099223, 1, 'Super Admin', 'SD Negeri Kalikidang', NULL, '2147483647', NULL),
+(13, '::1', 'guru@gmail.com', '$2y$10$Vghrih6PzNuwvnHa94.CZ.9ImygxfbjyLex9RNMnOjslNpcBzI39u', 'guru@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1765549397, 1766083700, 1, 'guru', '1', '', '', NULL),
+(18, '182.2.43.185', 'ranti@gmail.com', '$2y$10$8er/yA/fbuw0GIMRa6qZqueAl3OFt//wdp6KT.R2wdrpUECoJkXb2', 'ranti@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1766072036, NULL, 1, 'Ranti', 'Amira', 'ABC', '089665432344', NULL);
 
 -- --------------------------------------------------------
 
@@ -612,10 +662,9 @@ CREATE TABLE `users_groups` (
 --
 
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
-(124, 1, 1),
-(125, 11, 3),
+(129, 1, 1),
 (116, 13, 4),
-(118, 15, 3);
+(126, 18, 3);
 
 --
 -- Indexes for dumped tables
@@ -628,21 +677,29 @@ ALTER TABLE `banners`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ekskul`
+-- Indexes for table `ekstrakurikuler_foto`
 --
-ALTER TABLE `ekskul`
+ALTER TABLE `ekstrakurikuler_foto`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_ekskul_kategori` (`kategori_id`);
+
+--
+-- Indexes for table `ekstrakurikuler_kategori`
+--
+ALTER TABLE `ekstrakurikuler_kategori`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `facilities`
+-- Indexes for table `fasilitas_foto`
 --
-ALTER TABLE `facilities`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `fasilitas_foto`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_fasilitas_kategori` (`kategori_id`);
 
 --
--- Indexes for table `galeri`
+-- Indexes for table `fasilitas_kategori`
 --
-ALTER TABLE `galeri`
+ALTER TABLE `fasilitas_kategori`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -707,6 +764,12 @@ ALTER TABLE `ppdb`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `ppdb_views`
+--
+ALTER TABLE `ppdb_views`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `prestasi`
 --
 ALTER TABLE `prestasi`
@@ -755,34 +818,40 @@ ALTER TABLE `banners`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `ekskul`
+-- AUTO_INCREMENT for table `ekstrakurikuler_foto`
 --
-ALTER TABLE `ekskul`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `ekstrakurikuler_foto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `facilities`
+-- AUTO_INCREMENT for table `ekstrakurikuler_kategori`
 --
-ALTER TABLE `facilities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+ALTER TABLE `ekstrakurikuler_kategori`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `galeri`
+-- AUTO_INCREMENT for table `fasilitas_foto`
 --
-ALTER TABLE `galeri`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+ALTER TABLE `fasilitas_foto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `fasilitas_kategori`
+--
+ALTER TABLE `fasilitas_kategori`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `galeri_foto`
 --
 ALTER TABLE `galeri_foto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `galeri_kategori`
 --
 ALTER TABLE `galeri_kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `groups`
@@ -806,13 +875,13 @@ ALTER TABLE `kontak`
 -- AUTO_INCREMENT for table `materi_pelajaran`
 --
 ALTER TABLE `materi_pelajaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `opening`
@@ -830,13 +899,19 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `ppdb`
 --
 ALTER TABLE `ppdb`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `ppdb_views`
+--
+ALTER TABLE `ppdb_views`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `prestasi`
 --
 ALTER TABLE `prestasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `structure`
@@ -848,23 +923,35 @@ ALTER TABLE `structure`
 -- AUTO_INCREMENT for table `submenus`
 --
 ALTER TABLE `submenus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `ekstrakurikuler_foto`
+--
+ALTER TABLE `ekstrakurikuler_foto`
+  ADD CONSTRAINT `fk_ekskul_kategori` FOREIGN KEY (`kategori_id`) REFERENCES `ekstrakurikuler_kategori` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `fasilitas_foto`
+--
+ALTER TABLE `fasilitas_foto`
+  ADD CONSTRAINT `fk_fasilitas_kategori` FOREIGN KEY (`kategori_id`) REFERENCES `fasilitas_kategori` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `galeri_foto`

@@ -152,4 +152,50 @@ class C_ppdb extends CI_Controller {
 
         redirect('c_ppdb');
     }
+   public function rekap()
+{
+    $today = date('Y-m-d');
+
+    // 🔹 jumlah pengunjung PPDB hari ini
+    $row = $this->db
+        ->get_where('ppdb_views', ['view_date' => $today])
+        ->row();
+
+    $pengunjung = $row ? (int) $row->views : 0;
+
+    // 🔹 total pengisi Google Form (sepanjang waktu)
+    $pengisi = (int) $this->get_pengisi_form();
+
+    // 🔹 SEMUA pengunjung hari ini dianggap hanya melihat
+    $hanya_lihat = $pengunjung;
+
+    $data = [
+        'title'       => 'Rekap PPDB',
+        'page'        => 'ppdb/v_rekap',
+        'pengunjung'  => $pengunjung,
+        'pengisi'     => $pengisi,
+        // 'hanya_lihat' => $hanya_lihat
+    ];
+
+    $this->load->view('back/layouts/main', $data);
+}
+
+
+private function get_pengisi_form()
+{
+    // GANTI dengan link CSV Google Spreadsheet kamu
+    $url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTuAMdD72uWF04oeVxrbL26Qkz5XJ2SPrEoEcKeC5X9f1D5-zSWnDmyRN9hkX4SChDG8cqehIR9ZrZt/pub?output=csv';
+
+    $csv = @file_get_contents($url);
+    if ($csv === FALSE) {
+        return 0;
+    }
+
+    $rows = array_map('str_getcsv', explode("\n", $csv));
+
+    // dikurangi header
+    return max(count($rows) - 1, 0);
+}
+
+
 }

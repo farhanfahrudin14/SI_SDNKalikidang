@@ -8,29 +8,44 @@
                     <div class="card shadow-sm h-100">
 
                         <?php if (!empty($p->foto)) : ?>
-                            <img src="<?= base_url('uploads/prestasi/' . $p->foto); ?>" 
-                                 class="card-img-top" 
-                                 alt="<?= $p->judul; ?>" 
-                                 style="height: 200px; object-fit: cover;">
+                            <img
+                                src="<?= base_url('uploads/prestasi/' . $p->foto); ?>"
+                                class="card-img-top"
+                                alt="<?= strip_tags($p->judul); ?>"
+                                style="height: 200px; object-fit: cover;"
+                            >
                         <?php endif; ?>
 
                         <div class="card-body">
-                            <h5 class="card-title"><?= $p->judul; ?></h5>
-                            <p class="card-text"><?= word_limiter($p->deskripsi, 20); ?></p>
+
+                            <!-- JUDUL (HTML TERBATAS: bold + italic) -->
+                            <h5 class="card-title">
+                                <?= strip_tags($p->judul, '<b><strong><i><em>'); ?>
+                            </h5>
+
+                            <!-- DESKRIPSI (RINGKAS & TANPA HTML) -->
+                            <p class="card-text">
+                                <?= word_limiter(strip_tags($p->deskripsi), 20); ?>
+                            </p>
+
                         </div>
 
                         <div class="card-footer text-center">
-                           <a href="<?= site_url('akademik/prestasi_detail/' . $p->id); ?>" 
-   class="btn btn-info btn-sm">
-   Lanjut Membaca
-</a>
-
+                            <a
+                                href="<?= site_url('akademik/prestasi_detail/' . $p->id); ?>"
+                                class="btn btn-info btn-sm"
+                            >
+                                Lanjut Membaca
+                            </a>
                         </div>
+
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
     <?php else : ?>
-        <div class="alert alert-info text-center">Belum ada data prestasi yang ditambahkan.</div>
+        <div class="alert alert-info text-center">
+            Belum ada data prestasi yang ditambahkan.
+        </div>
     <?php endif; ?>
 </div>
